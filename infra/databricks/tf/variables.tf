@@ -8,7 +8,7 @@ variable "aws-region" {
 variable "project-name" {
   description = "The name of the project"
   type        = string
-  default     = "GitOps Minicamp 2024"
+  default     = "dbx"
 }
 ######################################## Environment Name ##########################################
 variable "environment-name" {
