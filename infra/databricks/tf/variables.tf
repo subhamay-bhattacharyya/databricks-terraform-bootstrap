@@ -1,9 +1,9 @@
 # --- root/dbx/tf/root/variables.tf ---
 
-variable "aws-region" {
-  type    = string
-  default = "us-east-1"
-}
+# variable "aws-region" {
+#   type    = string
+#   default = "us-east-1"
+# }
 ######################################## Project Name ##############################################
 variable "project-name" {
   description = "The name of the project"
@@ -31,11 +31,11 @@ variable "environment-name" {
   }
 }
 
-variable "ci-pipeline" {
-  description = "CI/CD pipeline configuration"
-  type        = string
-  default     = "true"
-}
+# variable "ci-pipeline" {
+#   description = "CI/CD pipeline configuration"
+#   type        = string
+#   default     = "true"
+# }
 ## Uncomment the following lines to use S3 as the backend for Terraform state management when running locally.
 ## For GitHub Actions, the backend is configured in the workflow file.
 
