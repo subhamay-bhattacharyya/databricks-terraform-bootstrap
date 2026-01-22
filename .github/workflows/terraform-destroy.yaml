@@ -21,6 +21,6 @@ jobs:
       tf-vars-file: ${{ inputs.tf-vars-file }}
       ci-pipeline: false
     secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
-      infracost-api-key: ${{ secrets.INFRACOST_API_KEY }}
-      infracost-gist-id: ${{ secrets.INFRACOST_GIST_ID }}
+      tfc-token: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
+      databricks-host: ${{ secrets.DATABRICKS_HOST }}
+      databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
