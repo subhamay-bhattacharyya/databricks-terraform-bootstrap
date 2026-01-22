@@ -16,7 +16,7 @@
         "CostCenter": "Engineering",
         "ClusterType": "SingleNode"
       },
-      "environment": "dev"
+      "environment": "devl"
     }
   ],
   "multi_node_clusters": [
@@ -39,7 +39,7 @@
         "CostCenter": "Engineering",
         "ClusterType": "MultiNode"
       },
-      "environment": "dev"
+      "environment": "devl"
     },
     {
       "name": "multi-node-prod",
