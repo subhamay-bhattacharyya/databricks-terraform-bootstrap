@@ -1,16 +1,4 @@
-## =====================================================================================================================
-## 📁 Project Name        : Terraform GitHub Template Repository
-## 📝 Description         : A reusable template for setting up Terraform-based Infrastructure-as-Code (IaC) projects
-##                         on GitHub using GitHub Actions for CI/CD automation.
-##
-## 🔄 Modification History:
-##   Version   Date          Author     Description
-##   -------   ------------  --------   -------------------------------------------------------------------------------
-##   1.0.0     Jun 20, 2025  Subhamay   Initial version with GitHub Actions workflow for Terraform CI/CD
-##
-## =====================================================================================================================
-
-# --- root/variables.tf ---
+# --- root/dbx/tf/root/variables.tf ---
 
 variable "aws-region" {
   type    = string
@@ -56,7 +44,22 @@ variable "ci-pipeline" {
 #   type        = string
 # }
 
-variable "bucket-name" {
-  description = "Name of the S3 bucket"
+# variable "bucket-name" {
+#   description = "Name of the S3 bucket"
+#   type        = string
+# }
+
+######################################## Databricks Configuration ##################################
+variable "databricks-host" {
+  description = "Databricks workspace URL (e.g., https://adb-1234567890123456.7.azuredatabricks.net)"
   type        = string
+  sensitive   = true
+  default     = null
+}
+
+variable "databricks-token" {
+  description = "Databricks personal access token or service principal token"
+  type        = string
+  sensitive   = true
+  default     = null
 }

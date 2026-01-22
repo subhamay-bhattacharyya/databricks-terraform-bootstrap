@@ -1,0 +1,108 @@
+{
+  "single_node_clusters": [
+    {
+      "name": "subhamay-single-node-cluster",
+      "spark_version": "13.3.x-scala2.12",
+      "node_type_id": "Standard_DS3_v2",
+      "autotermination_minutes": 20,
+      "num_workers": 0,
+      "data_security_mode": "SINGLE_USER",
+      "policy_name": "Personal Compute",
+      "spark_conf": {
+        "spark.master": "local[*]"
+      },
+      "tags": {
+        "Team": "DataEngineering",
+        "CostCenter": "Engineering",
+        "ClusterType": "SingleNode"
+      },
+      "environment": "dev"
+    }
+  ],
+  "multi_node_clusters": [
+    {
+      "name": "multi-node-dev",
+      "spark_version": "13.3.x-scala2.12",
+      "node_type_id": "Standard_DS3_v2",
+      "autotermination_minutes": 30,
+      "num_workers": 2,
+      "min_workers": 1,
+      "max_workers": 4,
+      "data_security_mode": "USER_ISOLATION",
+      "policy_id": null,
+      "spark_conf": {
+        "spark.databricks.delta.preview.enabled": "true",
+        "spark.sql.adaptive.enabled": "true"
+      },
+      "tags": {
+        "Team": "DataEngineering",
+        "CostCenter": "Engineering",
+        "ClusterType": "MultiNode"
+      },
+      "environment": "dev"
+    },
+    {
+      "name": "multi-node-prod",
+      "spark_version": "13.3.x-scala2.12",
+      "node_type_id": "Standard_DS4_v2",
+      "autotermination_minutes": 60,
+      "num_workers": 4,
+      "min_workers": 2,
+      "max_workers": 8,
+      "data_security_mode": "USER_ISOLATION",
+      "policy_id": null,
+      "spark_conf": {
+        "spark.databricks.delta.preview.enabled": "true",
+        "spark.sql.adaptive.enabled": "true",
+        "spark.databricks.cluster.profile": "serverless"
+      },
+      "tags": {
+        "Team": "DataEngineering",
+        "CostCenter": "Production",
+        "Criticality": "High",
+        "ClusterType": "MultiNode"
+      },
+      "environment": "prod"
+    }
+  ],
+  "workspace_folders": [
+    {
+      "path": "/Workspace/Demo/QueringFiles",
+      "description": "Root folder for all projects"
+    },
+    {
+      "path": "/Workspace/Projects",
+      "description": "Root folder for all projects"
+    },
+    {
+      "path": "/Workspace/Projects/Includes",
+      "description": "Contains the reusable includes files"
+    }
+  ],
+  "notebooks": [
+    {
+      "folder_path": "/Workspace/Projects/Includes",
+      "file_name": "Hello from Terraform",
+      "language": "PYTHON",
+      "source_file": "notebooks/python/hello_terraform.py"
+    },
+    {
+      "folder_path": "/Workspace/Projects/Includes",
+      "file_name": "Data Processing",
+      "language": "PYTHON",
+      "source_file": "notebooks/python/data_processing.py"
+    },
+    {
+      "folder_path": "/Workspace/Demo/QueringFiles",
+      "file_name": "Sample Query",
+      "language": "SQL",
+      "source_file": "notebooks/sql/sample_query.sql"
+    },
+    {
+      "folder_path": "/Workspace/Demo/QueringFiles",
+      "file_name": "Analytics",
+      "language": "SQL",
+      "source_file": "notebooks/sql/analytics.sql"
+    }
+  ]
+}
