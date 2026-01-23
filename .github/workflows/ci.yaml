@@ -35,7 +35,7 @@ jobs:
   databricks-core:
     name: Databricks
     # needs: start-job
-    uses: subhamay-bhattacharyya-gha/tf-ci-reusable-wf/.github/workflows/ci.yaml@feature/GHA-0033-enhancement-add-snowflake
+    uses: subhamay-bhattacharyya-gha/tf-ci-reusable-wf/.github/workflows/ci.yaml@main
     with:
       cloud-provider: databricks
       tflint-ver: ${{ vars.TF_LINT_VER }}
