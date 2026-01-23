@@ -7,20 +7,35 @@ on:
       environment:
         description: "Environment to deploy to (e.g., devl, test, prod)"
         required: true
-        type: environment
+        type: choice
+        options:
+          - devl
+          - test
+          - prod
         default: devl
+      terraform-dir:
+        description: "Terraform directory (e.g., infra/databricks/tf)"
+        required: true
+        type: string
+        default: "infra/databricks/tf"
+      tf-vars-file:
+        description: "Terraform variables file name"
+        required: true
+        type: string
+        default: "terraform.tfvars"
 
 
 jobs:
   apply:
-    name: 🚧 Run Terraform Apply
-    uses: subhamay-bhattacharyya-gha/tf-apply-wf/.github/workflows/terraform-apply.yaml@main
+    name: 🚧 Run Terraform Apply  
+    uses: subhamay-bhattacharyya-gha/tf-deploy-multi-reusable-wf/.github/workflows/terraform-deploy.yaml@main
     with:
-      environment: ${{ inputs.environment }}
-      terraform-dir: ${{ inputs.terraform-dir }}
-      tf-vars-file: ${{ inputs.tf-vars-file }}
-      ci-pipeline: false
+      cloud-provider: databricks
+      tflint-ver: ${{ vars.TF_LINT_VER }}
+      backend-type: remote
+      aws-region: ${{ vars.AWS_REGION }}
+      tf-vars-file: terraform.tfvars
     secrets:
-      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
-      infracost-api-key: ${{ secrets.INFRACOST_API_KEY }}
-      infracost-gist-id: ${{ secrets.INFRACOST_GIST_ID }}
+      tfc-token: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
+      databricks-host: ${{ secrets.DATABRICKS_HOST }}
+      databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
