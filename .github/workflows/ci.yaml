@@ -19,18 +19,6 @@ permissions:
   id-token: write
 
 jobs:
-  # start-job:
-  #   name: Start CI Workflow
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Set CI Job Status
-  #       id: set-ci-job-status
-  #       run: |
-  #         echo "ci-job-status=started" >> $GITHUB_OUTPUT
-
-  # ============================================================================
-  # Phase 1 & 2: Snowflake Core + Cloud Storage (Parallel)
-  # ============================================================================
   
   databricks-core:
     name: Databricks

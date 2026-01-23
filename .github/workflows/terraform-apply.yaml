@@ -3,19 +3,12 @@ run-name: Terraform Apply - ${{ github.ref_name }}
 
 on:
   workflow_dispatch:
-    # inputs:
-    #   cloud-provider:
-    #     description: "Target cloud provider"
-    #     required: true
-    #     type: choice
-    #     options:
-    #       - databricks
 
 
 jobs:
   apply:
     name: 🚧 Run Terraform Apply  
-    uses: subhamay-bhattacharyya-gha/tf-deploy-multi-reusable-wf/.github/workflows/terraform-deploy.yaml@main
+    uses: subhamay-bhattacharyya-gha/tf-deploy-multi-reusable-wf/.github/workflows/terraform-deploy.yaml@bug/GHA-0017-fix-input-validation-to-a
     with:
       cloud-provider: databricks
       tflint-ver: ${{ vars.TF_LINT_VER }}
