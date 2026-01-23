@@ -14,12 +14,10 @@ on:
 jobs:
   apply:
     name: 🚧 Run Terraform Destroy
-    uses: subhamay-bhattacharyya-gha/tf-apply-wf/.github/workflows/terraform-destroy.yaml@main
+    uses: subhamay-bhattacharyya-gha/terraform-destroy-wf/.github/workflows/terraform-destroy.yaml@feature/GHA-0028-add-multi-cloud-support
     with:
-      environment: ${{ inputs.environment }}
-      terraform-dir: ${{ inputs.terraform-dir }}
-      tf-vars-file: ${{ inputs.tf-vars-file }}
-      ci-pipeline: false
+      cloud-provider: "databricks"
+      backend-type: remote
     secrets:
       tfc-token: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
       databricks-host: ${{ secrets.DATABRICKS_HOST }}
