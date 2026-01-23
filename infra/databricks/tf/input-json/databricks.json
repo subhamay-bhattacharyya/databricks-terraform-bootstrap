@@ -1,7 +1,7 @@
 {
   "single_node_clusters": [
     {
-      "name": "single-node-cluster-202601231517",
+      "name": "single-node-cluster-202601231602",
       "spark_version": "13.3.x-scala2.12",
       "node_type_id": "Standard_DS3_v2",
       "autotermination_minutes": 20,

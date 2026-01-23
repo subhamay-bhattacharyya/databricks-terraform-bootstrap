@@ -3,26 +3,13 @@ run-name: Terraform Apply - ${{ github.ref_name }}
 
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        description: "Environment to deploy to (e.g., devl, test, prod)"
-        required: true
-        type: choice
-        options:
-          - devl
-          - test
-          - prod
-        default: devl
-      terraform-dir:
-        description: "Terraform directory (e.g., infra/databricks/tf)"
-        required: true
-        type: string
-        default: "infra/databricks/tf"
-      tf-vars-file:
-        description: "Terraform variables file name"
-        required: true
-        type: string
-        default: "terraform.tfvars"
+    # inputs:
+    #   cloud-provider:
+    #     description: "Target cloud provider"
+    #     required: true
+    #     type: choice
+    #     options:
+    #       - databricks
 
 
 jobs:
